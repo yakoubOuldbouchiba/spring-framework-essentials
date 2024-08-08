@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.spring.training.core-spring</groupId>
+    <artifactId>parentProject</artifactId>
+    <version>5.3.23</version>
+    <organization>
+        <name>Spring Training</name>
+        <url>https://spring.io/training</url>
+    </organization>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.5</version>
+        <relativePath/>
+    </parent>
+    <properties>
+        <!-- Versions of other dependencies not in spring IO. -->
+        <easymock.version>4.3</easymock.version>
+        <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
+        <jamon.version>2.82</jamon.version>
+        <spring-security.version>5.8.0</spring-security.version>
+
+        <java.version>11</java.version>
+
+        <!-- Enable maven support for Servlet 3 - no web.xml -->
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+
+        <!-- Add JAXB that is dropped in JDK 9 -->
+        <jaxb-api.version>2.3.0</jaxb-api.version>
+
+        <!-- Without this, Eclipse will flag an error on pom.xml -->
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+    </properties>
+    <dependencies>
+        <!--
+        // Although we are not using Spring Boot until Day 3, we do use
+        // SpringApplication which is a Spring Boot class. The starters
+        // are also a convenient way of pulling in the most common
+        // Spring and Testing dependencies.
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <!-- Needed for Spring's JdbcTemplate -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <!-- Database -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>
